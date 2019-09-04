@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>       
+      <div text-center>
+    <ion-title >Autenticar</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <br/>
+    
+    <ion-list>
+        <div padding>
+        <ion-item>
+          <ion-label floating>Usuário:</ion-label>
+          <ion-input [(ngModel)]="usuarioDto.usuario"
+             name="usuario" type="text" autocapitalize="off"
+             required ></ion-input>
+        </ion-item>
+        <br/>
+        <ion-item>
+          <ion-label floating>Senha:</ion-label>
+          <ion-input [(ngModel)]="usuarioDto.senha"
+             name="senha" type="password"  required  ></ion-input>
+        </ion-item>
+      </div>
+        <div padding>
+         <ion-text color="danger">{{mensagem}}</ion-text>
+         <br /> 
+         <ion-button expand="full"  (click)="autenticarUsuario()">Autenticar</ion-button>          
+        </div>
+     </ion-list>
+</ion-content>
