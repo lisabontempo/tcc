@@ -3,6 +3,7 @@ import { usuario } from '../model/usuario';
 import { retornoAutenticacao } from '../model/retornoAutenticacao';
 import { AlertController, NavController } from '@ionic/angular';
 import { ServicoRestService } from '../servico/servico-rest.service'
+import { pessoa } from '../model/pessoa';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginPage implements OnInit {
 
   usuarioDto : usuario;
   mensagem : String;
+  pessoa: pessoa;
 
   constructor(private alertCtrl : AlertController,
     private navCtrl : NavController, 
