@@ -1,50 +1,31 @@
 <ion-header>
-  <ion-toolbar color="light" >
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Início
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content class="bg" fullscreen>
-    <ion-grid>
-        <ion-row justify-content-center>
-            <ion-col 
-             size-sm="10" 
-              size-md="6" 
-              size-lg="4" 
-              size-xl="4">
-              <ion-card color="success">
-                  <img src="https://ead.unipam.edu.br/hs-fs/hubfs/Websites/unipam/Logos/logo-unipam.png?width=270&name=logo-unipam.png" />
-                  <ion-card-header color="success">
-                    <ion-card-title>
-                      Olá, seja bem vindo(a)!
-                      <ion-spinner name="circles" *ngIf="show"></ion-spinner>
-                    </ion-card-title>
-                  </ion-card-header>
-                  <!-- <ion-card-content>
-                    Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-                  </ion-card-content> -->
-                </ion-card>
-                <ion-card (click)="nps()">
-                  <ion-item>
-                    <ion-icon name="ribbon" slot="start" color="dark"></ion-icon>
-                    <ion-label>NPS</ion-label>
-                    <ion-button fill="outline" slot="end" (click)="nps()">Iniciar</ion-button>
-                  </ion-item>
-                  <ion-card-content>
-                    This is content, without any paragraph or header tags,
-                    within an ion-card-content element.
-                  </ion-card-content>
-                </ion-card>
-              </ion-col>
-              </ion-row>
-              </ion-grid>
+
+<ion-content class="bg">
+    <ion-card class="welcome-card">
+      <img src="/assets/shapes.svg" alt="" />
+      <ion-card-header>
+        <ion-card-title>Bem vindo (a) </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p></p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="nps()">
+      <ion-card-header>
+        <ion-card-title> <br/> <ion-icon name="ribbon"></ion-icon>
+         <h2>NPS</h2> <br/> <br/></ion-card-title>
+      </ion-card-header>
+      
+    </ion-card>
+    
 </ion-content>
-<ion-footer >
-  <ion-toolbar class="bg" >
-    <ion-title>Sistema de Avaliação NPS ©</ion-title>
-  </ion-toolbar>
-</ion-footer>

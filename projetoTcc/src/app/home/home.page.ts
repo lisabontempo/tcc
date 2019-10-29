@@ -8,14 +8,11 @@ import { pessoa } from '../model/pessoa';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  show = true;
-
+  
   pessoa: pessoa;
 
   constructor(private router: Router) {
-   setTimeout(() => {
-    this.show = false;
-   },3000);
+   
   }
 
   nps() {
