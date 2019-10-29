@@ -28,6 +28,23 @@ export class ServicoRestService {
 
   }
 
+  async listarAvaliacao(usuario: String, senha: String) {
+    var dados = {
+
+      IdeUsuario : usuario,
+      SenhaUsuario : senha,
+      IdSistema : 9909
+     
+    }
+    var url = "https://ws.unipam.edu.br/ServicoSegurancaMobile/Atividade/ListarAtividades";
+
+    return await this.http.post(url, dados, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).toPromise();
+
+  }
+
 
 
 }
