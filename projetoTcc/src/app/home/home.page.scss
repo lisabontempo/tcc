@@ -16,6 +16,12 @@
  ion-title {
 font-size: 15px
  }
+ .ion-color-tolbar {
+  --ion-color-base: var(--ion-color-tolbar);
+}
+.ion-color-footer {
+  --ion-color-base: var(--ion-color-footer);
+}
 
  ion-icon{
   font-size: 4em;
