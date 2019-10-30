@@ -24,9 +24,11 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import url('https://fonts.googleapis.com/css?family=Signika&display=swap');
 
-ion-header, ion-content, ion-title, ion-item, ion-list, ion-input{
-font-family: 'Roboto', sans-serif;
+ion-header, ion-content, ion-title, ion-item, ion-list, ion-input, h1,h2,h3,h4,h5, ion-card-content, 
+ion-label, ion-button{
+    font-family: 'Signika', sans-serif;
 }
 
 ion-button{
