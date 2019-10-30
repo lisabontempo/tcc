@@ -28,11 +28,11 @@ export class HomePage {
      // titulo: 'meu slide 1'
     },
     {
-      img: 'https://cdn160.picsart.com/upscale-276656061008211.png?r1024x1024',
+      img: 'https://infraestrutura.unipam.edu.br/images/fachada.jpg',
       //titulo: 'meu slide 2'
     },
     {
-      img: 'https://66.media.tumblr.com/b2b9ce02b09b7d132556ca00e6b882f3/tumblr_od05ox3dPI1vx777ao1_400.gif',
+      img: 'https://infraestrutura.unipam.edu.br/images/fachada.jpg',
       //titulo: 'meu slide 3'
     }
   ]
