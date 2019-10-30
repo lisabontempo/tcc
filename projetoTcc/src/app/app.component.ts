@@ -17,6 +17,11 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'NPS',
+      url: '/nps',
+      icon: 'paper'
+    },
+    {
       title: 'Sair',
       url: '/',
       icon: 'log-out'

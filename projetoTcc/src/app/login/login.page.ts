@@ -4,6 +4,7 @@ import { retornoAutenticacao } from '../model/retornoAutenticacao';
 import { AlertController, NavController } from '@ionic/angular';
 import { ServicoRestService } from '../servico/servico-rest.service'
 import { pessoa } from '../model/pessoa';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,19 +13,39 @@ import { pessoa } from '../model/pessoa';
 })
 export class LoginPage implements OnInit {
 
+  authForm: FormGroup;
+
   usuarioDto : usuario;
   mensagem : String;
   pessoa: pessoa;
 
   constructor(private alertCtrl : AlertController,
     private navCtrl : NavController, 
-    private servicoRest : ServicoRestService) { 
+    private servicoRest : ServicoRestService,
+    private fb: FormBuilder) { 
 
       this.usuarioDto = new usuario();
 
     }
 
   ngOnInit() {
+    this.createForm();
+  }
+
+  private createForm(): void {
+    this.authForm = this.fb.group({
+      usuario: ['', [Validators.required]],
+      senha:   ['', [Validators.required]]
+
+    })
+  }
+
+  get usuario(): FormControl {
+    return <FormControl>this.authForm.get('usuario');
+  }
+
+  get senha(): FormControl {
+    return <FormControl>this.authForm.get('senha');
   }
 
   async mostrarMensagem(textoMensagem : string) {

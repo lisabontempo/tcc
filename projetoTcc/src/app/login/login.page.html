@@ -9,31 +9,50 @@
             size-md="6" 
             size-lg="4" 
             size-xl="4">
-
     <ion-icon name="school" class="logo" color="favorite"></ion-icon>
-    
     <ion-list class="bg">
-        <div padding>
-        <ion-item>
-          <ion-label floating><ion-icon name="person"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="usuarioDto.usuario"
-             name="usuario" type="text" autocapitalize="off"
-             required placeholder="Usuário"></ion-input>
-        </ion-item>
-        <br/>
-        <ion-item>
-          <ion-label floating><ion-icon name="lock"></ion-icon></ion-label>
-          <ion-input [(ngModel)]="usuarioDto.senha"
-             name="senha" type="password"  required  placeholder="Senha"></ion-input>
-        </ion-item>
-      </div>
-        <div padding>
-         <ion-text color="danger">{{mensagem}}</ion-text>
-         <br /> 
-         <ion-button expand="full" shape="round"  (click)="autenticarUsuario()">Login</ion-button>          
-        </div>
-     </ion-list>
-     </ion-col>
-     </ion-row>
-     </ion-grid>
-</ion-content>
+ <form [formGroup]="authForm">
+    <ion-item>
+        <ion-label floating>
+          <ion-icon name="person">
+          </ion-icon>
+        </ion-label>
+        <ion-input [(ngModel)]="usuarioDto.usuario"
+           name="usuario" type="text" autocapitalize="off" 
+           formControlName="usuario"
+           placeholder="Usuário">
+          </ion-input>
+          <ion-note slot="end" color="danger"
+          *ngIf="usuario.dirty && usuario.hasError('required')">
+            Campo Obrigatório
+          </ion-note>
+      </ion-item>
+      <br/>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock">
+          </ion-icon>
+        </ion-label>
+        <ion-input [(ngModel)]="usuarioDto.senha"
+                    name="senha" type="password"
+                    formControlName="senha"
+                    placeholder="Senha">
+          </ion-input>
+          <ion-note slot="end" color="danger"
+          *ngIf="senha.dirty && senha.hasError('required')">
+            Campo Obrigatório
+          </ion-note>
+          </ion-item>
+         <ion-text color="danger">
+           {{mensagem}}
+        </ion-text>
+         <ion-button expand="full" shape="round" 
+                     (click)="autenticarUsuario()"
+                     [disabled]="authForm.invalid">Login
+            </ion-button> 
+            </form>         
+          </ion-list>
+          </ion-col>
+          </ion-row>
+          </ion-grid>
+      </ion-content>
