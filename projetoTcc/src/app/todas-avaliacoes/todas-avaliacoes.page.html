@@ -1,10 +1,13 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>todasAvaliacoes</ion-title>
+  <ion-toolbar color="tolbar">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/nps"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Avaliação</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="bg">
   
     <ion-item *ngFor='let at of listaTodasAvaliacoes'>
       <ng-container *ngIf='at.IdAvaliacao == IdAvaliacao'>
@@ -17,5 +20,9 @@
           </ion-card>
       </ng-container>
   </ion-item>
-  
   </ion-content> 
+  <ion-footer >
+      <ion-toolbar color="footer" >
+        <ion-title>Sistema de Avaliação NPS ©</ion-title>
+      </ion-toolbar>
+    </ion-footer>

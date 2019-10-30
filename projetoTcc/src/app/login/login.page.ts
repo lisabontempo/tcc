@@ -95,6 +95,7 @@ export class LoginPage implements OnInit {
               else
               {
                 this.usuarioDto.nomeUsuario = retorno.NomeUsuario;
+                this.usuarioDto.IdUsuario = retorno.IdUsuario;
                 
                 
               }

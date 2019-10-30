@@ -10,12 +10,10 @@ ion-list{
 
 ion-item {
     --background: transparent !important;
-    
     border: 1px solid #fff !important;
     border-radius: 27px;
-    ion-input {
-        color: #fff;
-        
+ion-input {
+    color: #fff; 
     }
     ion-label {
         color: #fff!important;
@@ -30,8 +28,8 @@ ion-button {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #39f57b !important;
+    font-weight: bold;
+    color: #1B5E20!important;
     --background: #fff !important;
     border: none;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);

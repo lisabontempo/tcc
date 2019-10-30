@@ -9,6 +9,7 @@
 
  ion-card{
   --background: #fff !important;
+    border-radius: 20px;
  }
  ion-card-title{
    text-align: center;
@@ -22,7 +23,18 @@ font-size: 15px
 .ion-color-footer {
   --ion-color-base: var(--ion-color-footer);
 }
-
+.ion-color-botao {
+  --ion-color-base: var(--ion-color-botao);
+}
+.ion-color-verdim {
+  --ion-color-base: var(--ion-color-verdim);
+}
+h2{
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  color: #004D40;
+}
  ion-icon{
   font-size: 4em;
  }
@@ -43,4 +55,8 @@ h3{
 ion-slides {
 --bullet-background: grey;
 --bullet-background-active: #00BFA5
+}
+
+.ion-color-favorite {
+  --ion-color-base: var(--ion-color-favorite);
 }
