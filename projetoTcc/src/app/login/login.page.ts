@@ -1,3 +1,4 @@
+import { OverlayService } from './../services/overlay.service';
 import { Component, OnInit } from '@angular/core';
 import { usuario } from '../model/usuario';
 import { retornoAutenticacao } from '../model/retornoAutenticacao';
@@ -22,7 +23,8 @@ export class LoginPage implements OnInit {
   constructor(private alertCtrl : AlertController,
     private navCtrl : NavController, 
     private servicoRest : ServicoRestService,
-    private fb: FormBuilder) { 
+    private fb: FormBuilder,
+    private overlayService: OverlayService) { 
 
       this.usuarioDto = new usuario();
 
@@ -104,10 +106,11 @@ export class LoginPage implements OnInit {
            this.mostrarMensagem(this.mensagem.toString());
            return;
         }
-
+        const loading = await this.overlayService.loading()
     
      window.sessionStorage.setItem("Usuario", JSON.stringify(this.usuarioDto));
      this.navCtrl.navigateRoot('home');
+     loading.dismiss();
      
   }
 
