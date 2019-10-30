@@ -2,7 +2,7 @@ import { OverlayService } from './../services/overlay.service';
 import { Component, OnInit } from '@angular/core';
 import { usuario } from '../model/usuario';
 import { retornoAutenticacao } from '../model/retornoAutenticacao';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, ToastController } from '@ionic/angular';
 import { ServicoRestService } from '../servico/servico-rest.service'
 import { pessoa } from '../model/pessoa';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
@@ -24,7 +24,8 @@ export class LoginPage implements OnInit {
     private navCtrl : NavController, 
     private servicoRest : ServicoRestService,
     private fb: FormBuilder,
-    private overlayService: OverlayService) { 
+    private overlayService: OverlayService,
+    private toastCtrl: ToastController) { 
 
       this.usuarioDto = new usuario();
 
@@ -50,14 +51,17 @@ export class LoginPage implements OnInit {
     return <FormControl>this.authForm.get('senha');
   }
 
-  async mostrarMensagem(textoMensagem : string) {
-    const alert = await this.alertCtrl.create({
-      header: 'Atenção', 
-      message: textoMensagem,
-      buttons: ['OK']
-    });
-
-    await alert.present();
+  async toast(options?: ToastController): Promise <HTMLIonToastElement> {
+    const toast = await this.toastCtrl.create({
+      message: 'Usuário inválido! Procure a secretaria acadêmica.',
+      position: 'middle',
+      duration: 3000,
+      showCloseButton: true,
+      closeButtonText: 'Ok',
+      ...options
+    })
+    await toast.present();
+    return toast;
   }
 
   async autenticarUsuario()
@@ -65,14 +69,14 @@ export class LoginPage implements OnInit {
      if (this.usuarioDto.usuario.trim() == "")
      {
        this.mensagem = "Favor informar o usuário";
-       this.mostrarMensagem(this.mensagem.toString());
+       this.toast();
        return;
      }
 
      if (this.usuarioDto.senha.trim() == "")
      {
        this.mensagem = "Favor informar a senha";
-       this.mostrarMensagem(this.mensagem.toString());
+       this.toast();
        return;
      }
      this.mensagem = "";
@@ -86,7 +90,7 @@ export class LoginPage implements OnInit {
               if (retorno.Autenticado === "N")
               {
                
-                  this.mensagem = retorno.Mensagem
+                 this.mensagem = retorno.Mensagem
               }
               else
               {
@@ -103,7 +107,7 @@ export class LoginPage implements OnInit {
 
      if (this.mensagem.trim() != "")
         {
-           this.mostrarMensagem(this.mensagem.toString());
+           this.toast();
            return;
         }
         const loading = await this.overlayService.loading()

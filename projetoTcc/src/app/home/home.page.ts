@@ -11,7 +11,7 @@ export class HomePage {
 
   slides = [
     {
-      img: 'https://thumbs.gfycat.com/CookedDeliciousArthropods-max-1mb.gif',
+      img: 'https://infraestrutura.unipam.edu.br/images/fachada.jpg',
      // titulo: 'meu slide 1'
     },
     {
