@@ -9,6 +9,16 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="bg" fullscreen>
+    <ion-slides pager="true">
+        <ion-slide *ngFor="let slide of slides">
+          <div class="slide-img-padding">
+              <img [src]="slide.img">
+          </div>
+          <div>
+           <h3 [innerHTML]="slide.titulo"></h3> 
+          </div>
+        </ion-slide>
+      </ion-slides>
     <ion-grid>
         <ion-row justify-content-center>
             <ion-col 
@@ -16,23 +26,12 @@
               size-md="6" 
               size-lg="4" 
               size-xl="4">
-              <ion-card >
-                  <img src="https://ead.unipam.edu.br/hs-fs/hubfs/Websites/unipam/Logos/logo-unipam.png?width=270&name=logo-unipam.png" />
-                  <ion-card-header>
-                    <ion-card-title>
-                      Olá, seja bem vindo(a)!
-                      <ion-spinner name="circles" *ngIf="show"></ion-spinner>
-                    </ion-card-title>
-                  </ion-card-header>
-                  <!-- <ion-card-content>
-                    Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-                  </ion-card-content> -->
-                </ion-card>
                 <ion-card (click)="nps()">
                   <ion-item>
                     <ion-icon name="ribbon" slot="start" color="dark"></ion-icon>
                     <ion-label>NPS</ion-label>
-                    <ion-button fill="outline" slot="end" (click)="nps()">Iniciar</ion-button>
+<!--                     <ion-spinner name="circles" *ngIf="show"></ion-spinner>
+ -->                    <ion-button fill="outline" slot="end" (click)="nps()">Iniciar</ion-button>
                   </ion-item>
                   <ion-card-content>
                     This is content, without any paragraph or header tags,
