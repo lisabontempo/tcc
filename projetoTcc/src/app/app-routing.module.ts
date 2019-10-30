@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'nps', loadChildren: './nps/nps.module#NpsPageModule' },
-  { path: 'todas-avaliacoes', loadChildren: './todas-avaliacoes/todas-avaliacoes.module#TodasAvaliacoesPageModule' }
+  { path: 'todas-avaliacoes', loadChildren: './todas-avaliacoes/todas-avaliacoes.module#TodasAvaliacoesPageModule' },
+  { path: 'avaliacao', loadChildren: './avaliacao/avaliacao.module#AvaliacaoPageModule' }
 ];
 
 @NgModule({
