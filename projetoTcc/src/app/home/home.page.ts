@@ -11,6 +11,13 @@ import { LoadingController } from '@ionic/angular';
 })
 export class HomePage {
 
+  constructor(private router: Router,
+    private loadingCtrl: LoadingController) {
+   setTimeout(() => {
+    this.show = false;
+   },3000);
+  }
+
   async loading(options?: LoadingOptions): Promise <HTMLIonLoadingElement>{
     const loading = await this.loadingCtrl.create ({
       message: 'Carregando...',
@@ -39,13 +46,6 @@ export class HomePage {
   show = true;
 
   pessoa: pessoa;
-
-  constructor(private router: Router,
-    private loadingCtrl: LoadingController) {
-   setTimeout(() => {
-    this.show = false;
-   },3000);
-  }
 
   nps() {
     this.router.navigate(['nps']);
