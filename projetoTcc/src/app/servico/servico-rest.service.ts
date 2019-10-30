@@ -45,6 +45,24 @@ export class ServicoRestService {
 
   }
 
+  async listarProfessores(idAcesso: String, idUsuario: String, idAplicacao: String, idTipoAvaliacao: String) {
+    var dados = {
+
+      "IdAcesso": idAcesso,
+      "IdUsuario": idUsuario,
+      "IdAplicacaoAvaliacao": idAplicacao,
+       "IdTipoAvaliacao": idTipoAvaliacao
+     
+    }
+    var url = "https://ws.unipam.edu.br/ServicoSegurancaMobile/Atividade/ListarItensAtividade";
+
+    return await this.http.post(url, dados, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).toPromise();
+
+  }
+
 
 
 }

@@ -96,6 +96,7 @@ export class LoginPage implements OnInit {
               {
                 this.usuarioDto.nomeUsuario = retorno.NomeUsuario;
                 
+                
               }
           })
          .catch((erro)=> {

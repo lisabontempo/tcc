@@ -49,6 +49,16 @@ export class TodasAvaliacoesPage implements OnInit {
       });
   }
 
+  itens(IdAcesso, IdAplicacaoAvaliacao){
+
+    const IdTipoAvaliacao = this.IdTipoAvaliacao;
+    const IdUsuario = this.usuarioDto.IdUsuario;
+
+    console.log(IdAcesso, IdAplicacaoAvaliacao, IdTipoAvaliacao, IdUsuario);
+
+    this.router.navigate(['avaliacao' , {IdAcesso, IdAplicacaoAvaliacao, IdTipoAvaliacao, IdUsuario}]);
+  }
+
   ngOnInit() {
   }
 
