@@ -15,8 +15,7 @@ export class NpsPage implements OnInit {
 
   listaAvaliacoes : Array<avaliacao>
   usuarioDto : usuario;
-  idAvaliacao = Number ;
-  idTipoAvaliacao = Number;
+ 
 
   constructor(private servicoRest : ServicoRestService,
     private navCtrl : NavController,
@@ -44,8 +43,7 @@ export class NpsPage implements OnInit {
 
     atividade(IdAvaliacao, IdTipoAvaliacao){
 
-     // this.router.navigate(['todasAvaliacao', {IdAvaliacao, IdTipoAvaliacao}]);
-     this.navCtrl.navigateRoot(['todas-avaliacoes' , {IdAvaliacao, IdTipoAvaliacao}]);
+      this.router.navigate(['todas-avaliacoes' , {IdAvaliacao, IdTipoAvaliacao}]);
     }
 
 

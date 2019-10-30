@@ -4,6 +4,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-</ion-content>
+<ion-content padding>
+  
+    <ion-item *ngFor='let at of listaTodasAvaliacoes'>
+      <ng-container *ngIf='at.IdAvaliacao == IdAvaliacao'>
+          <ion-card text-center padding >
+          <h2>IdAvaliação: {{at.IdAvaliacao}}</h2>
+          <h2>Respondeu: {{at.Respondeu}}</h2>
+          <h2>Data Hora Início: {{at.DataHoraInicioAplicacaoAvaliacao}}</h2>
+          <h2>Data Hora Fim: {{at.DataHoraFimAplicacaoAvaliacao}}</h2>
+          <button ion-button (click)="itens(at.IdAcesso, at.IdAplicacaoAvaliacao)">Avaliar</button>
+          </ion-card>
+      </ng-container>
+  </ion-item>
+  
+  </ion-content> 
