@@ -1,0 +1,26 @@
+.bg {
+    --background: linear-gradient(160deg, #39f57b 20%, #10DFC8 80%) !important;
+}
+.ion-color-tolbar {
+    --ion-color-base: var(--ion-color-tolbar);
+}
+.ion-color-footer {
+    --ion-color-base: var(--ion-color-footer);
+}  
+ion-title {
+    font-size: 15px
+}
+ion-card{
+    --background:white;
+    border-radius: 100px;
+    --color: black
+}
+h1 {
+    text-align:center
+}
+h3 {
+    font-size: 17px
+}
+h2 {
+    font-size: 20px
+}
