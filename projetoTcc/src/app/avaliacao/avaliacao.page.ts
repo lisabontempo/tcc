@@ -45,12 +45,22 @@ export class AvaliacaoPage implements OnInit {
     await this.servicoRest.listarProfessores(this.IdAcesso, this.usuarioDto.IdUsuario, this.IdAplicacaoAvaliacao, this.IdTipoAvaliacao)
       .then((data) => {
          let retorno = Object.assign(data)
-           this.listaprofessores = retorno.AplicacoesAvaliacoes;
+           this.listaprofessores = retorno.ItensAtividade;
       
       })
       .catch((erro) => {
           console.log(erro.error.error_description);        
       });
+  }
+
+  avaliaProf(IdAplicacaoAvaliacaoEstrutura){
+
+    const IdTipoAvaliacao = this.IdTipoAvaliacao;
+    const IdAcesso = this.IdAcesso;
+    const IdAplicacaoAvaliacao = this.IdAplicacaoAvaliacao;
+
+    this.router.navigate(['avaliar' , {IdAplicacaoAvaliacaoEstrutura, IdAcesso, IdAplicacaoAvaliacao, IdTipoAvaliacao}]);
+
   }
 
   ngOnInit() {

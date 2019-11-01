@@ -48,10 +48,15 @@ export class ServicoRestService {
   async listarProfessores(idAcesso: String, idUsuario: String, idAplicacao: String, idTipoAvaliacao: String) {
     var dados = {
 
-      "IdAcesso": idAcesso,
-      "IdUsuario": idUsuario,
-      "IdAplicacaoAvaliacao": idAplicacao,
-       "IdTipoAvaliacao": idTipoAvaliacao
+      "IdAcesso": "711547",
+      "IdUsuario": 50947,
+      "IdAplicacaoAvaliacao": "3438" ,
+      "IdTipoAvaliacao":17
+      
+      //"IdAcesso": idAcesso,
+      //"IdUsuario": idUsuario,
+      //"IdAplicacaoAvaliacao": idAplicacao,
+       //"IdTipoAvaliacao": idTipoAvaliacao
      
     }
     var url = "https://ws.unipam.edu.br/ServicoSegurancaMobile/Atividade/ListarItensAtividade";

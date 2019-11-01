@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Avaliação Professores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <p>Professor</p>
+  
+  <ng-container *ngFor='let a of avaliar'>
+  <div *ngIf='a.IdAplicacaoAvaliacaoEstrutura == IdAplicacaoAvaliacaoEstrutura && a.IdQuestao == 32462'>
+  <p>Em uma escala de 0 a 10, o quanto você indicaria, para um(a) colega, o(a) professor(a){{a.Professor}}, para ministrar
+    a disciplina {{a.Disciplina}}
+  </p>
+  <ion-list>
+    <ion-item>
+        <ion-range min="1" max="5" color="secondary">
+          <ion-label slot="start" color="dark">1</ion-label>
+          <ion-label slot="end">10</ion-label>
+        </ion-range>
+      </ion-item>
+  </ion-list>
+  
+  </div>
+  <div *ngIf='a.IdAplicacaoAvaliacaoEstrutura == IdAplicacaoAvaliacaoEstrutura && a.IdQuestao == 32463'>
+  <!--<p>{{a.TextoQuestao}}</p>-->
+  <p>Em poucas palavras, descreva o que motivou sua nota.</p>
+  <ion-item>
+  <ion-input type="text" [(ngModel)]="resposta"></ion-input>
+  </ion-item>
+  </div>
+  </ng-container>
+  <br/><br/>
+  <button ion-button (click)="closeModal()" class="salvar" style="background-color:#fff;">Salvar</button>
+  </ion-content>
+  
