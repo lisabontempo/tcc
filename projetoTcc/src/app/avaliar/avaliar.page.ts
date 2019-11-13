@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicoRestService } from '../servico/servico-rest.service';
-import { NavController, AlertController } from '@ionic/angular';
+import { NavController, AlertController, LoadingController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { usuario } from '../model/usuario';
 
@@ -17,10 +17,15 @@ export class AvaliarPage implements OnInit {
   IdTipoAvaliacao: any;
   usuarioDto : usuario;
   avaliar : any = []; 
+  nota = 1
+  resposta: ''
+  IdAvaliacao : any
+  Professor : any
 
   constructor(private servicoRest : ServicoRestService,
     private navCtrl : NavController,
-    private alertCtrl : AlertController,private router: Router,private acrouter: ActivatedRoute) {
+    private alertCtrl : AlertController,private router: Router,private acrouter: ActivatedRoute,
+    private loadingCtrl : LoadingController ) {
 
       this.usuarioDto = JSON.parse(window.sessionStorage.getItem("Usuario"));
 
@@ -30,6 +35,8 @@ export class AvaliarPage implements OnInit {
          this.IdTipoAvaliacao =  params['IdTipoAvaliacao'];  
          this.IdAplicacaoAvaliacao =  params['IdAplicacaoAvaliacao'];  
          this.IdAplicacaoAvaliacaoEstrutura =  params['IdAplicacaoAvaliacaoEstrutura'];  
+         this.IdAvaliacao = params['IdAvaliacao'];
+         this.Professor = params['Professor'];
        
      });
 
@@ -43,7 +50,14 @@ export class AvaliarPage implements OnInit {
       await this.servicoRest.listarProfessores(this.IdAcesso, this.usuarioDto.IdUsuario, this.IdAplicacaoAvaliacao, this.IdTipoAvaliacao)
         .then((data) => {
              let retorno = Object.assign(data)
+            //  let teste = retorno.filter((atividade) => {
+            //   return atividade.IdAplicacaoAvaliacaoEstrutura == this.IdAplicacaoAvaliacaoEstrutura && atividade.IdQuestao == '32462'
+            //  })
+
+            //  console.log(teste)
              this.avaliar = retorno.ItensAtividade;
+
+             console.log(this.avaliar)
         
         })
         .catch((erro) => {
@@ -52,6 +66,32 @@ export class AvaliarPage implements OnInit {
     }
 
   ngOnInit() {
+  }
+
+  async submit () {
+    const data = {
+      Id_Usuario: this.usuarioDto.IdUsuario,
+      Professor : this.Professor,
+      Nota: this.nota,
+      Descricao: this.resposta,
+      IdAvaliacao: this.IdAvaliacao
+    }
+
+    const loading = await this.loadingCtrl.create({
+      message: 'Estamos enviando sua solicitação de salvar atividade',
+      duration: 2000
+    });
+    await loading.present();
+
+    await this.servicoRest.salvarAvaliacao(data)
+      .then((result) => {
+        loading.onDidDismiss();
+        this.router.navigate(['avaliacao']);
+        console.log(result)
+      }).catch((err) => {
+        loading.onDidDismiss();
+        console.log(err)
+      });
   }
 
 }

@@ -7,22 +7,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding class="bg">
+<ion-content>
   
-    <ion-item *ngFor='let at of listaTodasAvaliacoes'>
-      <ng-container *ngIf='at.IdAvaliacao == IdAvaliacao'>
-          <ion-card text-center padding>
-          <h2>IdAvaliação: {{at.IdAvaliacao}}</h2>
-          <h2>Respondeu: {{at.Respondeu}}</h2>
-          <h2>Data Hora Início: {{at.DataHoraInicioAplicacaoAvaliacao}}</h2>
-          <h2>Data Hora Fim: {{at.DataHoraFimAplicacaoAvaliacao}}</h2>
-          <ion-button  (click)="itens(at.IdAcesso, at.IdAplicacaoAvaliacao)"
-                         shape="round">
-                          Avaliar
-        </ion-button>
-          </ion-card>
-      </ng-container>
-  </ion-item>
+    <ion-grid  class="bg2">
+        <ion-row class="padding">
+            <ion-col col-12>
+                <ion-icon color="white" name="paper"></ion-icon> <br/>
+                <h2> Avaliações Disponíveis</h2>
+      </ion-col>
+    </ion-row>
+        
+    </ion-grid> 
+    <ion-grid class="bg3">
+        <div class="margin43">      
+          <ion-row *ngFor="let at of listaTodasAvaliacoes">
+            <ion-col col-12>
+              <ion-card text-center padding 
+              (click)="itens(at.IdAcesso, at.IdAplicacaoAvaliacao)" >
+              <h2>IdAvaliação: {{at.IdAvaliacao}}</h2>
+              <h2>Respondeu: {{at.Respondeu}}</h2>
+              <h2>Data Hora Início: {{at.DataHoraInicioAplicacaoAvaliacao}}</h2>
+              <h2>Data Hora Fim: {{at.DataHoraFimAplicacaoAvaliacao}}</h2>
+              <ion-button  (click)="itens(at.IdAcesso, at.IdAplicacaoAvaliacao)"
+                              shape="round" color="button">
+                              Avaliar
+              </ion-button>
+                 
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </div>  
+      </ion-grid> 
+
   </ion-content> 
   <ion-footer >
       <ion-toolbar color="footer" >

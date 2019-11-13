@@ -19,6 +19,7 @@ export class ServicoRestService {
       IdSistema : 9909
      
     }
+
     var url = "http://ws.unipam.edu.br/ServicoSegurancaMobile/Autenticar/AutenticarGeral";
 
     return await this.http.post(url, dados, {
@@ -68,6 +69,14 @@ export class ServicoRestService {
 
   }
 
+  async salvarAvaliacao(data) {
+    var url = "https://tcc-backend-unipam.herokuapp.com/salvarAtividades";
+
+    return await this.http.post(url, data, {
+      headers: new HttpHeaders()
+        .set('Content-Type', 'application/json')
+    }).toPromise();
+  }
 
 
 }

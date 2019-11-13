@@ -1,11 +1,11 @@
 .bg {
-    --background: linear-gradient(160deg, #39f57b 20%, #10DFC8 80%) !important;
+    --background: linear-gradient(160deg, #00f0d1 20%, #083b76 80%) !important;
 }
 .ion-color-tolbar {
     --ion-color-base: var(--ion-color-tolbar);
 }
 .ion-color-footer {
-    --ion-color-base: var(--ion-color-footer);
+    --ion-color-base: var(--ion-color-footer2);
 } 
 ion-title {
     font-size: 15px
@@ -16,3 +16,36 @@ ion-avatar {
     margin-right: 10px
   
   }
+
+  .bg2{
+    background-image: linear-gradient(160deg, #00f0d1 20%, #083b76 80%) !important;
+    height: 196px;
+    color:#fff;
+    text-align: center;
+}
+
+.bg3{
+    background-color: #e2fdfa !important;
+    z-index: 999;
+}
+.padding{
+    padding: 25px 34px;
+}
+
+ion-icon{
+    width: 50px;
+   height: 50px;
+   }
+   
+   ion-card{
+    --background:#fff;
+    border-radius: 20px;
+    --color: black
+}
+
+.ion-color-button {
+    --ion-color-base: var(--ion-color-button);
+}
+.margin43{
+    margin-top: -43px;
+}

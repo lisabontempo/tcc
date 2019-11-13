@@ -18,6 +18,8 @@ export class AvaliacaoPage implements OnInit {
   IdAcesso : any;
   IdAplicacaoAvaliacao: any;
   IdTipoAvaliacao: any;
+  IdAvaliacao: any;
+  Professor: any;
 
   constructor(private servicoRest : ServicoRestService,
     private navCtrl : NavController,
@@ -29,8 +31,7 @@ export class AvaliacaoPage implements OnInit {
 
          this.IdAcesso = params['IdAcesso'];  
          this.IdTipoAvaliacao =  params['IdTipoAvaliacao'];  
-         this.IdAplicacaoAvaliacao =  params['IdAplicacaoAvaliacao'];  
-       
+         this.IdAplicacaoAvaliacao =  params['IdAplicacaoAvaliacao'];
      });
 
      this.listaprofessores = new Array<professor>();
@@ -53,13 +54,13 @@ export class AvaliacaoPage implements OnInit {
       });
   }
 
-  avaliaProf(IdAplicacaoAvaliacaoEstrutura){
+  avaliaProf(IdAplicacaoAvaliacaoEstrutura, IdAvaliacao, Professor){
 
     const IdTipoAvaliacao = this.IdTipoAvaliacao;
     const IdAcesso = this.IdAcesso;
     const IdAplicacaoAvaliacao = this.IdAplicacaoAvaliacao;
 
-    this.router.navigate(['avaliar' , {IdAplicacaoAvaliacaoEstrutura, IdAcesso, IdAplicacaoAvaliacao, IdTipoAvaliacao}]);
+    this.router.navigate(['avaliar' , {IdAplicacaoAvaliacaoEstrutura, IdAcesso, IdAplicacaoAvaliacao, IdTipoAvaliacao, IdAvaliacao, Professor}]);
 
   }
 

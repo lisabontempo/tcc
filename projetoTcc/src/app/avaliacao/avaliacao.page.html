@@ -1,20 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>avaliacao</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar color="tolbar">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/todas-avaliacoes"></ion-back-button>
+        </ion-buttons>
+      <ion-title>Avaliação</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content padding>
+<ion-content >
+
+    <ion-grid  class="bg2">
+        <ion-row class="padding">
+            <ion-col col-12>
+                
+              
+      </ion-col>
+    </ion-row>
+    </ion-grid> 
+
+    <ion-grid class="bg3">
+        <div class="margin43">      
+          <ion-row *ngFor="let it of listaprofessores">
+            <ion-col col-12>
+              <ion-card text-center padding 
+              (click)="itens(at.IdAcesso, at.IdAplicacaoAvaliacao)" >
+              <h3>{{it.Disciplina}}</h3>
+              <ion-button  (click)="avaliaProf(it.IdAplicacaoAvaliacaoEstrutura, it.IdAvaliacao, it.Professor)"
+                              shape="round" color="button">
+                              {{it.Professor}}
+              </ion-button>
+                 
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </div>  
+      </ion-grid> 
  
-  <ion-list inset>
-    <ion-item *ngFor="let it of listaprofessores">
-      
-       <button ion-button full (click)="avaliaProf(it.IdAplicacaoAvaliacaoEstrutura)">
-        {{it.Professor}}
-      </button>
-      <h3>{{it.Disciplina}}</h3>
-        
-    </ion-item>
-    </ion-list> 
   
 </ion-content>
+<ion-footer >
+    <ion-toolbar color="footer" >
+      <ion-title>Sistema de Avaliação NPS ©</ion-title>
+      <ion-avatar slot="end">
+        <img src="./assets/logo.png">
+        </ion-avatar>
+    </ion-toolbar>
+  </ion-footer>

@@ -4,6 +4,7 @@ import {todasAvaliacoes} from '../model/todasAvaliacoes';
 import { ServicoRestService } from '../servico/servico-rest.service';
 import { NavController, AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash'
 
 @Component({
   selector: 'app-todas-avaliacoes',
@@ -41,7 +42,9 @@ export class TodasAvaliacoesPage implements OnInit {
     await this.servicoRest.listarAvaliacao(this.usuarioDto.usuario, this.usuarioDto.senha)
       .then((data) => {
          let retorno = Object.assign(data)
-           this.listaTodasAvaliacoes = retorno.Atividades;
+         let retornoFiltrado = _.filter(retorno.Atividades, (atividade) => { return atividade.IdAvaliacao == this.IdAvaliacao })
+
+           this.listaTodasAvaliacoes = retornoFiltrado;
       
       })
       .catch((erro) => {
