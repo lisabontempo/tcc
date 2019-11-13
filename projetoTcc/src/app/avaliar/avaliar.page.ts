@@ -17,7 +17,7 @@ export class AvaliarPage implements OnInit {
   IdTipoAvaliacao: any;
   usuarioDto : usuario;
   avaliar : any = []; 
-  nota = 1
+  nota = 0
   resposta: ''
   IdAvaliacao : any
   Professor : any

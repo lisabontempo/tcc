@@ -46,13 +46,15 @@ ion-button {
     transform: translateY(-7px);
   }
 
-  .logo{
-      font-size: 7em;
-
-  }
+ 
   
   .ion-color-favorite {
     --ion-color-base: var(--ion-color-favorite);
+}
+
+img{
+    width: 180px;
+    height: 180px;
 }
 
 

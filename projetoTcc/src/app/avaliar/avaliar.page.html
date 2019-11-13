@@ -7,37 +7,54 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content padding>
-  <p>Professor</p>
+<ion-content class="bg3">
   
-  <ng-container *ngFor='let a of avaliar'>
-  <div *ngIf='a.IdAplicacaoAvaliacaoEstrutura == IdAplicacaoAvaliacaoEstrutura && a.IdQuestao == 32462'>
-  <p>Em uma escala de 0 a 10, o quanto você indicaria, para um(a) colega, o(a) professor(a){{a.Professor}}, para ministrar
-    a disciplina {{a.Disciplina}}
-  </p>
-
-  <p>Nota Selecionada: {{ nota }} </p>
-
-  <ion-list>
-    <ion-item>
-        <ion-range min="1" max="10" color="secondary" [(ngModel)]="nota">
-          <ion-label slot="start" color="dark">1</ion-label>
-          <ion-label slot="end">10</ion-label>
-        </ion-range>
-      </ion-item>
-  </ion-list>
+    <ion-grid  class="bg2">
+        <ion-row class="padding">
+            <ion-col col-12>
+                
+      </ion-col>
+    </ion-row>
+    </ion-grid> 
+    
+    <ion-card text-center padding class="margin43">
+  <ng-container *ngFor='let a of avaliar' >
+      
+  <div *ngIf='a.IdAplicacaoAvaliacaoEstrutura == IdAplicacaoAvaliacaoEstrutura && a.IdQuestao == 32462' >
   
+          <p class="justify">Em uma escala de 0 a 10, o quanto você indicaria, para um(a) colega, o(a) professor(a) {{a.Professor}}, para ministrar
+            a disciplina {{a.Disciplina}}?
+          </p>
+
+             <p>Nota Selecionada: {{ nota }} </p>
+
+          <ion-list >
+            <ion-item>
+                <ion-range min="0" max="10" color="secondary" [(ngModel)]="nota">
+                  <ion-label slot="start" color="dark">0</ion-label>
+                  <ion-label slot="end">10</ion-label>
+                </ion-range>
+              </ion-item>
+          </ion-list>
+
   </div>
+  
   <div *ngIf='a.IdAplicacaoAvaliacaoEstrutura == IdAplicacaoAvaliacaoEstrutura && a.IdQuestao == 32463'>
   <!--<p>{{a.TextoQuestao}}</p>-->
+  <br/><br/>
   <p>Em poucas palavras, descreva o que motivou sua nota.</p>
   <ion-item>
   <ion-input type="text" [(ngModel)]="resposta"></ion-input>
   </ion-item>
+  <br/><br/><br/>
 
-  <button ion-button (click)="submit()" class="salvar" style="background-color:#fff;">Salvar</button>
+  <button ion-button (click)="submit()" class="salvar"  class="botao">Salvar</button>
+
+  
   </div>
+ 
   </ng-container>
+</ion-card>
   <br/><br/>
   </ion-content>
 
