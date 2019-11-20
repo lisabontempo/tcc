@@ -4,6 +4,7 @@ import { NavController, AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { usuario } from '../model/usuario';
 import { professor } from '../model/professor';
+import * as _ from 'lodash'
 
 
 @Component({
@@ -46,7 +47,8 @@ export class AvaliacaoPage implements OnInit {
     await this.servicoRest.listarProfessores(this.IdAcesso, this.usuarioDto.IdUsuario, this.IdAplicacaoAvaliacao, this.IdTipoAvaliacao)
       .then((data) => {
          let retorno = Object.assign(data)
-           this.listaprofessores = retorno.ItensAtividade;
+         let retornoFiltrado = _.filter(retorno.ItensAtividade, (atividade) => { return atividade.IdQuestao == 32463 })
+           this.listaprofessores = retornoFiltrado;
       
       })
       .catch((erro) => {

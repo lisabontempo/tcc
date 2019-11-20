@@ -6,6 +6,7 @@ import { retornoAvaliacoes } from '../model/retornoAvaliacoes';
 import { usuario } from '../model/usuario';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingOptions } from '@ionic/core';
+import * as _ from 'lodash'
 
 @Component({
   selector: 'app-nps',
@@ -45,7 +46,8 @@ export class NpsPage implements OnInit {
         .then((data) => {
           let retorno = Object.assign(new retornoAvaliacoes(), data)
           if (retorno.Autenticado !== "N") {
-             this.listaAvaliacoes = retorno.Avaliacoes;
+            let retornoFiltrado = _.filter(retorno.Avaliacoes, (atividade) => { return atividade.IdTipoAvaliacao == 17 })
+             this.listaAvaliacoes = retornoFiltrado;
           }
         })
         .catch((erro) => {
