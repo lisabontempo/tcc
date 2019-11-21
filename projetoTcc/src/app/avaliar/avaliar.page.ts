@@ -50,11 +50,7 @@ export class AvaliarPage implements OnInit {
       await this.servicoRest.listarProfessores(this.IdAcesso, this.usuarioDto.IdUsuario, this.IdAplicacaoAvaliacao, this.IdTipoAvaliacao)
         .then((data) => {
              let retorno = Object.assign(data)
-            //  let teste = retorno.filter((atividade) => {
-            //   return atividade.IdAplicacaoAvaliacaoEstrutura == this.IdAplicacaoAvaliacaoEstrutura && atividade.IdQuestao == '32462'
-            //  })
-
-            //  console.log(teste)
+           
              this.avaliar = retorno.ItensAtividade;
 
              console.log(this.avaliar)

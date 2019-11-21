@@ -17,7 +17,7 @@ export class ServicoRestService {
     IdeUsuario : usuario,
       SenhaUsuario : senha,
       IdSistema : 9909
-     
+
     }
 
     var url = "http://ws.unipam.edu.br/ServicoSegurancaMobile/Autenticar/AutenticarGeral";
@@ -31,11 +31,9 @@ export class ServicoRestService {
 
   async listarAvaliacao(usuario: String, senha: String) {
     var dados = {
-
       IdeUsuario : usuario,
       SenhaUsuario : senha,
       IdSistema : 9909
-     
     }
     var url = "https://ws.unipam.edu.br/ServicoSegurancaMobile/Atividade/ListarAtividades";
 
@@ -43,7 +41,6 @@ export class ServicoRestService {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
     }).toPromise();
-
   }
 
   async listarProfessores(idAcesso: String, idUsuario: String, idAplicacao: String, idTipoAvaliacao: String) {
@@ -54,11 +51,11 @@ export class ServicoRestService {
       "IdAplicacaoAvaliacao": "3438" ,
       "IdTipoAvaliacao":17
       
-      //"IdAcesso": idAcesso,
+     // "IdAcesso": idAcesso,
       //"IdUsuario": idUsuario,
       //"IdAplicacaoAvaliacao": idAplicacao,
-       //"IdTipoAvaliacao": idTipoAvaliacao
-     
+      // "IdTipoAvaliacao": idTipoAvaliacao
+
     }
     var url = "https://ws.unipam.edu.br/ServicoSegurancaMobile/Atividade/ListarItensAtividade";
 

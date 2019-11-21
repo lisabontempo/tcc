@@ -23,19 +23,17 @@
           <ion-row *ngFor="let it of listaprofessores">
             <ion-col col-12>
               <ion-card text-center padding 
-              (click)="itens(at.IdAcesso, at.IdAplicacaoAvaliacao)" >
+              (click)="avaliaProf(it.IdAplicacaoAvaliacaoEstrutura, it.IdAvaliacao, it.Professor)" >
               <h3>{{it.Disciplina}}</h3>
               <ion-button  (click)="avaliaProf(it.IdAplicacaoAvaliacaoEstrutura, it.IdAvaliacao, it.Professor)"
                               shape="round" color="button">
                               {{it.Professor}}
               </ion-button>
-                 
               </ion-card>
             </ion-col>
           </ion-row>
         </div>  
       </ion-grid> 
- 
   
 </ion-content>
 <ion-footer >
